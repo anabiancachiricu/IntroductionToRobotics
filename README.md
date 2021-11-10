@@ -43,4 +43,5 @@ should detect EMF (check body and near outlets.  DO NOT IN-SERT INTO OUTLET - AK
 
 ## Link to video showcasing functionality:
 https://www.youtube.com/watch?v=PzIKLrkWwt4&ab_channel=AnaBiancaChiricu
+
 https://www.youtube.com/watch?v=UGvX-TAcic0&ab_channel=AnaBiancaChiricu (fun part)
