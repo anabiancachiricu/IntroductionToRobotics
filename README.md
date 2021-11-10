@@ -28,3 +28,19 @@ The system has the following states:
 
 ## Link to video showcasing functionality:
 https://youtu.be/ZIVulcF-aNk
+
+
+# Homework 3
+## Task requierments:
+Basically, we’re building the ghost detector (aka an EMF - electromagneticfield  -  detector).   
+should detect EMF (check body and near outlets.  DO NOT IN-SERT INTO OUTLET - AKA NU-L BAGATI IN PRIZA). It should printthe value on the 7-segment display (or light the led bar)andshould makea sound based on the intensity.
+
+## Picture of the setup:
+![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw3_poza1.jpeg)
+![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw3_poza2.jpeg)
+![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw3_poza3.jpeg)
+
+
+## Link to video showcasing functionality:
+https://www.youtube.com/watch?v=PzIKLrkWwt4&ab_channel=AnaBiancaChiricu
+https://www.youtube.com/watch?v=UGvX-TAcic0&ab_channel=AnaBiancaChiricu (fun part)
