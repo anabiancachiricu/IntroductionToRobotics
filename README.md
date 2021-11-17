@@ -52,9 +52,9 @@ The current home-work  involves  using  a  joystick  in  setting  the  values  o
 First  state:   you  can  use  a  joystick  axis  to  cycle  through  the  4digits; using the other axis does nothing.  A blinking decimal point shows the current digit position.  When pressing the button (must use interruptfor  maximum  points!),  you  lock  in  on  the  selected  digit  and  enter  thesecond state.  In this state, the decimal point stays always on, no longerblinking and you can no longer use the axis to cycle through the 4 digits.Instead, using the other axis, you can increment on decrement the numberon the current digit.  Pressing the button again returns you to the previousstate.  For bonus, save the last value in eeprom and load it when starting arduino.  Also, keep in mind that when changing the number, you mustincrement it for each joystick movement - it should not work continuoslyincrement if you keep the joystick in one position.
 
 ## Picture of the setup:
-![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw3_poza2.jpeg)
-![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw3_poza1.jpeg)
-![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw3_poza3.jpeg)
+![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw4_poza2.jpeg)
+![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw4_poza1.jpeg)
+![alt text](https://github.com/anabiancachiricu/IntroductionToRobotics/blob/main/Hw4_poza3.jpeg)
 
 ## Link to video showcasing functionality:
 https://youtu.be/b10ZX4KvGxM
