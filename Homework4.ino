@@ -19,7 +19,6 @@ int displayNumber = 0;
 int segmentNumber = 0;
 boolean registers[8];
 int currentSegment = 0;
-
 bool displayChanged = false;
 unsigned long lastChanged = 0;
 const int blinkingInterval = 100;
@@ -31,13 +30,14 @@ int displayDigits[] =
 {
   segD1, segD2, segD3, segD4
 };
+
 //array for values of segments
-int segmentValue[4] = 
+int segmentValue[4] =
 {
   0, 0, 0, 0
 };
 
-int digitArray[16] = 
+int digitArray[16] =
 {
   //A B C D E F G DP
   B11111100, // 0
@@ -62,13 +62,14 @@ unsigned long previousMillis = 0;
 const long interval = 1000;
 
 // states of the button press
-
 bool swState = LOW;
 bool lastSwState = LOW;
+
 //joystick values
 int switchValue;
 int xValue = 0;
 int yValue = 0;
+
 //values used to determine if the joystick moved and which way
 bool joyMoved = false;
 int digit = 0;
@@ -76,27 +77,24 @@ int minThreshold = 400;
 int maxThreshold = 600;
 int currentNumber = 0;
 
-void setup() 
+void setup()
 {
   // put your setup code here, to run once:
   pinMode(dataPin, OUTPUT);
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
-
   pinMode(pinX, INPUT);
   pinMode(pinY, INPUT);
   pinMode(pinSW, INPUT_PULLUP);
-
   for (int i = 0; i < segmentsCount; i++)
   {
     pinMode(displayDigits[i], OUTPUT);
   }
   attachInterrupt(digitalPinToInterrupt(pinSW), interruptBlink, FALLING);
-
   Serial.begin(9600);
 }
 
-void loop() 
+void loop()
 {
   // put your main code here, to run repeatedly:
   showDigits();
@@ -120,7 +118,7 @@ void interruptBlink()
   lastDebounceTime = millis();
 }
 
-void writeReg(int digit) 
+void writeReg(int digit)
 {
   // ST_CP LOW to keep LEDs from changing while reading serial data
   digitalWrite(latchPin, LOW);
@@ -182,38 +180,34 @@ void writeNumber(int number, int displayDigit)
 void changeDisplay()
 {
   yValue = analogRead(pinY);
-  
   if (yValue > maxThreshold && joyMoved == false)
   {
-    if (currentSegment > 0) 
+    if (currentSegment > 0)
     {
       currentSegment--;
     }
-    else 
+    else
     {
       currentSegment = 3;
     }
     joyMoved = true;
   }
-
   if (yValue < minThreshold && joyMoved == false)
   {
-    if (currentSegment < 3) 
+    if (currentSegment < 3)
     {
       currentSegment++;
     }
-    else 
+    else
     {
       currentSegment = 0;
     }
     joyMoved = true;
   }
-
   if (yValue >= minThreshold && yValue <= maxThreshold)
   {
     joyMoved = false;
   }
-  
 }
 
 void changeNumber(int currentSegment)
@@ -221,37 +215,33 @@ void changeNumber(int currentSegment)
   xValue = analogRead(pinX);
   // On Ox axis, if the value is lower than a chosen min threshold, then
   // decrease by 1 the digit value.
-
-  if (xValue < minThreshold && joyMoved == false) 
+  if (xValue < minThreshold && joyMoved == false)
   {
-    if (segmentValue[currentSegment] > 0) 
+    if (segmentValue[currentSegment] > 0)
     {
       segmentValue[currentSegment]--;
     }
-    else 
+    else
     {
       segmentValue[currentSegment] = 9;
     }
     joyMoved = true;
-
   }
-  
   // On Ox axis, if the value is bigger than a chosen max threshold, then
   // increase by 1 the digit value
-  if (xValue > maxThreshold && joyMoved == false) 
+  if (xValue > maxThreshold && joyMoved == false)
   {
-    if (segmentValue[currentSegment] < 9) 
+    if (segmentValue[currentSegment] < 9)
     {
       segmentValue[currentSegment]++;
     }
-    else 
+    else
     {
       segmentValue[currentSegment] = 0;
     }
     joyMoved = true;
   }
-
-  if (xValue >= minThreshold && xValue <= maxThreshold) 
+  if (xValue >= minThreshold && xValue <= maxThreshold)
   {
     joyMoved = false;
   }
